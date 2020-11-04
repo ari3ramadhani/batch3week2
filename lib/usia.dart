@@ -64,6 +64,7 @@ class _UsiaState extends State<Usia> {
                 Flexible(
                     child: TextFormField(
                         focusNode: tgl,
+                        maxLength: 2,
                         controller: controllerTanggal,
                         keyboardType: TextInputType.number,
                         onChanged: (val) {
@@ -72,6 +73,7 @@ class _UsiaState extends State<Usia> {
                           }
                         },
                         decoration: InputDecoration(
+                          counterText: '',
                           labelText: "Tanggal",
                           //icon: Icon(Icons.phone_iphone)
                         ))),
@@ -81,14 +83,19 @@ class _UsiaState extends State<Usia> {
                 Flexible(
                     child: TextFormField(
                         focusNode: bln,
+                        maxLength: 2,
                         controller: controllerBulan,
                         keyboardType: TextInputType.number,
                         onChanged: (val) {
                           if (controllerBulan.text.length == 2) {
                             FocusScope.of(context).requestFocus(thn);
                           }
+                          else if(controllerBulan.text.length == 0) {
+                            FocusScope.of(context).requestFocus(tgl);
+                          }
                         },
                         decoration: InputDecoration(
+                          counterText: '',
                           labelText: "Bulan",
                         ))),
                 Text("/",
@@ -96,10 +103,17 @@ class _UsiaState extends State<Usia> {
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                 Flexible(
                     child: TextFormField(
+                        maxLength: 4,
                         focusNode: thn,
                         controller: controllerTahun,
                         keyboardType: TextInputType.number,
+                        onChanged: (val) {
+                        if(controllerTahun.text.length == 0) {
+                            FocusScope.of(context).requestFocus(bln);
+                          }
+                        },
                         decoration: InputDecoration(
+                          counterText: '',
                           labelText: "Tahun",
                         ))),
               ],
