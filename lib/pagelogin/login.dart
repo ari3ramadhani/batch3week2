@@ -1,11 +1,10 @@
 import 'halamanhome.dart';
 import 'package:flutter/material.dart';
 
-
 class Pertama extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Login Dengan MySql',
       home: Login(),
@@ -17,14 +16,12 @@ class Pertama extends StatelessWidget {
   }
 }
 
-
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
-
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
   TextEditingController _controllerUsername = TextEditingController();
@@ -40,7 +37,6 @@ class _LoginState extends State<Login> {
     });
   }
 
-
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   void _showScaffold(String message) {
@@ -49,18 +45,15 @@ class _LoginState extends State<Login> {
     ));
   }
 
-  String usernamenya ="admin";
-  String paswordnya ="admin";
-
+  String usernamenya = "admin";
+  String paswordnya = "admin";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text(
-          "Login"
-        ),
+        title: Text("Login"),
       ),
       body: Form(
         key: _formKey,
@@ -115,7 +108,6 @@ class _LoginState extends State<Login> {
                       }
                       return null;
                     },
-
                     controller: _controllerPassword,
                     obscureText: _isHidePassword,
                     decoration: InputDecoration(
@@ -156,20 +148,19 @@ class _LoginState extends State<Login> {
                     if (_formKey.currentState.validate()) {
                       //event /Future/void
                     }
-                    setState(() {
-                    }
-                    );
-                    if (_controllerUsername.text=="admin" && _controllerPassword.text == "admin"){
-                      _controllerUsername.clear();
-                      _controllerPassword.clear();
+                    setState(() {});
+                    if (_controllerUsername.text == "admin" &&
+                        _controllerPassword.text == "admin") {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => HalamanHome(
-                                  panggilusername: _controllerUsername.text,panggilpasswordnya: _controllerPassword.text)));
-                    } else if (_controllerPassword.text.length < 6){
+                                  panggilusername: _controllerUsername.text,
+                                  panggilpasswordnya:
+                                      _controllerPassword.text)));
+                    } else if (_controllerPassword.text.length < 6) {
                       _showScaffold("tidak boleh kurang dari 6 digit");
-                    }else{
+                    } else {
                       _showScaffold("Tidak terdaftar");
                     }
                   },
@@ -185,11 +176,9 @@ class _LoginState extends State<Login> {
               ),
             ),
             Text(isi),
-
           ],
         ),
       ),
     );
   }
 }
-

@@ -1,6 +1,6 @@
-import 'package:batch3week2/kubus.dart';
-import 'package:batch3week2/lingkaran.dart';
-import 'package:batch3week2/rectangle.dart';
+import 'package:batch3week2/pagerumus/kubus.dart';
+import 'package:batch3week2/pagerumus/lingkaran.dart';
+import 'package:batch3week2/pagerumus/rectangle.dart';
 import 'kubus.dart';
 import 'package:flutter/material.dart';
 

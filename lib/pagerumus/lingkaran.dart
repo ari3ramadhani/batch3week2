@@ -10,7 +10,7 @@ class _LingkaranState extends State<Lingkaran> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
 
-  String akhir;
+  String akhirluas,akhirkeliling;
   double luas;
   showAlertDialog(BuildContext context) {
     // set up the button
@@ -25,8 +25,8 @@ class _LingkaranState extends State<Lingkaran> {
     );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Hasilnya"),
-      content: Text("Luas lingkaran $akhir"),
+      title: Text("Lingkaran Hasil"),
+      content: Text("Luas $akhirluas \nKeliling $akhirkeliling"),
       actions: [
         okButton,
       ],
@@ -82,10 +82,13 @@ class _LingkaranState extends State<Lingkaran> {
                       //event /Future/void
                     }
                       setState(() {
-                        akhir =_controllerLingkaran.text;
-                        int ari= int.parse(akhir);
-                        luas = 3.14 * ari;
-                        akhir= luas.toString();
+                        akhirluas =_controllerLingkaran.text;
+                        int masukan= int.parse(akhirluas);
+                        luas = 3.14 * masukan;
+
+                        double keliling = 2 * 3.14 * masukan;
+                        akhirluas= luas.toString();
+                        akhirkeliling = keliling.toString();
 
                         showAlertDialog(context);
                       });

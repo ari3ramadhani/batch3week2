@@ -1,4 +1,3 @@
-import 'package:batch3week2/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -17,13 +16,7 @@ class HalamanHome extends StatefulWidget {
 
 class _HalamanHomeState extends State<HalamanHome> {
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  void _showScaffold(String message) {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
-      content: Text(message),
-    ));
-  }
   showAlertDialog(BuildContext context) {
     // set up the button
     Widget okButton = FlatButton(
@@ -31,7 +24,6 @@ class _HalamanHomeState extends State<HalamanHome> {
       onPressed: () {
         Navigator.pop(context);
        Navigator.pop(context);
-
       },
     );
     Widget cancelButton = FlatButton(

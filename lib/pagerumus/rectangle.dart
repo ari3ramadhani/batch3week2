@@ -10,7 +10,7 @@ class _RectangleState extends State<Rectangle> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
 
-  String akhir;
+  String akhirluas,akhirkeliling;
   double luas;
   showAlertDialog(BuildContext context) {
     // set up the button
@@ -26,8 +26,8 @@ class _RectangleState extends State<Rectangle> {
     );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Hasilnya"),
-      content: Text("Luas persegi panjang $akhir"),
+      title: Text("Rectangle Hasil"),
+      content: Text("Luas $akhirluas \nKeliling $akhirkeliling"),
       actions: [
         okButton,
       ],
@@ -103,10 +103,13 @@ class _RectangleState extends State<Rectangle> {
                         //event /Future/void
                       }
                       setState(() {
-                        int ari= int.parse(_controllerRectangle.text);
-                        int ari2=int.parse(_controllerTinggi.text);
-                        ari= ari * ari2;
-                        akhir = ari.toString();
+                        int panjang= int.parse(_controllerRectangle.text);
+                        int tinggi=int.parse(_controllerTinggi.text);
+                        int luas = panjang * tinggi;
+
+                        int keliling = 2 *(panjang + tinggi);
+                        akhirluas = luas.toString();
+                        akhirkeliling = keliling.toString();
 
                         showAlertDialog(context);
 

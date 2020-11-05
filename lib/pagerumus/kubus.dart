@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 class Kubus extends StatefulWidget {
@@ -9,7 +8,7 @@ class Kubus extends StatefulWidget {
 class _KubusState extends State<Kubus> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
-  String akhir;
+  String akhirluas,akhirkeliling;
   showAlertDialog(BuildContext context) {
     // set up the button
     Widget okButton = FlatButton(
@@ -23,8 +22,8 @@ class _KubusState extends State<Kubus> {
     );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Hasilnya"),
-      content: Text("Luas kubus $akhir"),
+      title: Text("Kubus Hasil"),
+      content: Text("Luas $akhirluas \nKeliling $akhirkeliling"),
       actions: [
         okButton,
       ],
@@ -81,10 +80,13 @@ class _KubusState extends State<Kubus> {
                         //event /Future/void
                       }
                       setState(() {
-                        akhir =_controllerkubus.text;
-                        int ari= int.parse(akhir);
-                        ari= ari *4;
-                        akhir = ari.toString();
+                        akhirluas =_controllerkubus.text;
+                        int masukan= int.parse(akhirluas);
+                        int luas = masukan * masukan;
+
+                        int keliling = masukan * 4;
+                        akhirluas = luas.toString();
+                        akhirkeliling = keliling.toString();
 
                         showAlertDialog(context);
                       });
